@@ -1,0 +1,33 @@
+1) extract hybris suite
+2) create new database in my sql.
+3) add sql connector jar in dbdriver folder.
+4) navigate to platform directory & run following command:
+	ant modulegen -Dinput.module=accelerator -Dinput.name= b2bassets -Dinput.package= com.capgemini.b2bassets -Dinput.template=develop
+5) take a backup of b2bassets folder, & replace it with my b2bassets folder.
+6) take backup of build.gradle (of b2b_acc_plus) & replce it with my build.gradle file.
+	make db changes accoring to ur database name, username & password.
+7) navigate to installer directory, run following command
+	install.bat -r b2b_acc_plus
+8) ant clean all
+9) hybrisserver.bat
+10) go to hac & Initialize the system.
+11) create new workspace & import all the extensions.
+12) Go to Browser hit the Url http://powertools.local:9001/b2bassetsstorefront
+
+
+Installing assets:
+1) Copy hotfolder, interfaceerror, solrsearchrestriction from addons folder/zip to your custom folder.
+2) Add these three extensions in b2b_acc_plus/buil.gradle file as :
+   extName 'hotfolder'
+   extName 'interfaceerror'
+   extName 'solrsearchrestriction'
+   
+3) Run the gradle command form installer: install.bat -r b2b_acc_plus
+4) Navigate to platform directory : ant clean all and start the server: hybrisserver.bat
+5) Go to Hybris admin console (hac) & update these 3 extensions, select-
+	> update running system
+	> Create essential data
+	> select hotfolder, interfaceerror, solrsearchrestriction
+
+
+
